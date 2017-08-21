@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Portal xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <admin>itec@etg.com</admin>
+    <description>Customer Portal</description>
+    <emailSenderAddress>itecetg@gmail.com</emailSenderAddress>
+    <emailSenderName>itec@etg.com</emailSenderName>
+    <enableSelfCloseCase>false</enableSelfCloseCase>
+    <forgotPassTemplate>unfiled$public/CustomerPortalChangePwdEmail</forgotPassTemplate>
+    <isSelfRegistrationActivated>true</isSelfRegistrationActivated>
+    <newPassTemplate>unfiled$public/CustomerPortalChangePwdEmail</newPassTemplate>
+    <newUserTemplate>unfiled$public/CustomerPortalNewUserEmail</newUserTemplate>
+    <selfRegUserDefaultProfile>customer portal manager</selfRegUserDefaultProfile>
+    <selfRegUserDefaultRole>Worker</selfRegUserDefaultRole>
+    <selfRegUserTemplate>unfiled$public/CustomerPortalSelfRegUserEmail</selfRegUserTemplate>
+    <showActionConfirmation>false</showActionConfirmation>
+    <type>CustomerSuccess</type>
+</Portal>

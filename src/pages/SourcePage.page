@@ -1,0 +1,17 @@
+<apex:page controller="SourcePageController" setup="false" sidebar="false" showheader="true" >
+<apex:sectionHeader title="Page Navigation" subtitle="Source Page"/>
+<apex:form >
+    <apex:pageblock title="Source PageBlock">
+        <apex:pageblockButtons location="top">
+            <apex:commandButton value="Goto Target Page" action="{!RedirectToTargetPage}"/>
+        </apex:pageblockButtons>
+        
+        <apex:pageblockSection title="Source Page Section" collapsible="false" columns="2">
+            <apex:inputtext label="Enter Account Name :" value="{!accountName}"/>
+            <apex:inputtext label="Enter Account Industry :" value="{!accountIndustry}"/>
+        </apex:pageblockSection>
+        
+    </apex:pageblock>
+
+</apex:form>
+</apex:page>

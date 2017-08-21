@@ -1,0 +1,250 @@
+<apex:page standardController="Company__c" extensions="DetailPageController" showHeader="false">
+ <apex:form >
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="language" content="English"/>
+<!--media css support meta tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<title>IT-EC-Department</title>
+<!--fav icon link-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+ 
+ <!--main stylesheet-->
+<apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+</head>
+<body>
+ 
+  <div class="header-block">
+    <div class="container">
+      <div class="header-block-left">
+        <a href="/apex/Home"><img src="/resource/1497272641000/logo" alt=""/></a>
+        <h2>IT, Electronics &amp; Communication Department </h2> 
+       </div>
+      <div class="header-block-right">
+        <ul>
+           <!-- <li><a href="#" class="login-menu"><i class="spirit-icon login-icon"></i> Login</a></li> -->
+           <li><a href="#" class="login-menu"><i class="spirit-icon login-icon"></i>
+                     <apex:outputtext value="Login" rendered="{!(ISPICKVAL($User.UserType,'Guest'))}"/>
+                     <apex:outputtext value="{!$Site.Prefix}" rendered="{!NOT(ISPICKVAL($User.UserType,'Guest'))}">{!$User.FirstName}&nbsp;{!$User.LastName}</apex:outputtext>
+                </a>
+                
+            </li>
+            <li><a href="#" class="contact-menu"><i class="spirit-icon contact-icon"></i> Contact Us</a></li>
+            <li><apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp" rendered="{!NOT(ISPICKVAL($User.UserType,'Guest'))}">{!$Label.site.logout}</apex:outputLink></li>
+        </ul>
+      
+      </div>
+    </div>
+  </div>
+
+<div class="inner-part">
+    <div class="search-option-block ">
+        <div class="search-block">
+            <apex:inputText value="{!SearchText}" html-placeHolder="search Domain"/>
+            
+            <button class="submit-btn"><apex:commandButton action="{!searchCompanies}" image="{!URLFOR($Resource.SearchIcon)}" style="width:33px;height:30px;margin-left:-1px;margin-top:-1px;background:none;"/></button>
+        </div>
+        
+        <div class="option-block">
+            <ul>
+                
+                <li>
+                    <a href="/apex/ListPage?cat=ESDM">
+                        <i class="spirit-icon es-small-icon"></i>
+                        <span>ESDM</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=Plastic">
+                        <i class="spirit-icon pr-small-icon"></i>
+                        <span>Plastic</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=Govt Bodies">
+                        <i class="spirit-icon dg-small-icon"></i>
+                        <span>Govt Bodies</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=VCs">
+                        <i class="spirit-icon bpm-small-icon"></i>
+                        <span>VCs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=IT Services">
+                        <i class="spirit-icon it-small-icon"></i>
+                        <span>IT Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=">
+                         <span>View All</span>
+                    </a>
+                </li>
+            </ul>
+             
+        </div>
+    </div>
+    
+
+        <div class="details-block">
+             <div class="container">
+             <div class="back-to-list">
+               <a href="javascript:history.go(-1)">
+                   <img src="/resource/1497855753000/Back_Arrow" alt=""/>
+                 
+                    <h3>{!comp.Company_Name__c} <span>{!comp.Locality__C} , {!comp.City__C}</span></h3>
+               </a>
+             </div>
+             
+            <div class="details-block-left">
+                <div class="thumb-blocks">
+                    <img src="{!comp.logo__C}" alt=""/>
+                    <p>{!getCompanyName }</p>
+                </div>
+            </div>
+            <div class="details-block-right">
+                <table>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon company-icon"></i></td>
+                        <td width="200px"><h4>Company</h4></td>
+                        <td><p>{!comp.Company_Name__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon industry-icon"></i></td>
+                        <td><h4>Industry</h4></td>
+                        <td><p>{!comp.Domain__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon sub-domain-icon"></i></td>
+                        <td><h4>Sub Domain / Market</h4></td>
+                        <td><p>{!comp.Sub_Domain__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon product-icon"></i></td>
+                        <td><h4>Product</h4></td>
+                        <td><p>{!comp.Product__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon employees-icon"></i></td>
+                        <td><h4>Employees</h4></td>
+                        <td><p>{!comp.Employees__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon phone-icon"></i></td>
+                        <td><h4>Contact</h4></td>
+                        <td><p>{!comp.Contact__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon e-mail-icon"></i></td>
+                        <td><h4>E-Mail</h4></td>
+                        <td><p>{!comp.Email__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon head-icon"></i></td>
+                        <td><h4>Head</h4></td>
+                        <td><p>{!comp.Head__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon position-icon"></i></td>
+                        <td><h4>Position</h4></td>
+                        <td><p>{!comp.Position__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon city-icon"></i></td>
+                        <td><h4>City</h4></td>
+                        <td><p>{!comp.city__C}</p></td>
+                    </tr>
+
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon street-icon"></i></td>
+                        <td><h4>Street</h4></td>
+                        <td><p>{!comp.Street__C}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon address-icon"></i></td>
+                        <td><h4>Locality</h4></td>
+                        <td><p>{!comp.Locality__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon revenue-icon"></i></td>
+                        <td><h4>Revenue</h4></td>
+                        <td><p>{!comp.Revenue__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon website-icon"></i></td>
+                        <td><h4>Web Site</h4></td>
+                        <td><p>{!comp.Web_Site__c}</p></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+     
+         
+    </div>
+</div>
+<div class="login-block">
+    <div class="login-inner-block">
+        <div class="user-photo"><img src="/resource/1497273743000/Photo" alt=""/></div>
+        <div class="login-field-block">
+            <c:SiteLogin id="siteLogin"/>
+        </div>
+         <button value="Login" name="" class="close-btn">X</button>
+    </div>
+</div>
+
+<div class="contact-block">
+    <div class="login-inner-block">
+        <!-- <div class="user-photo"><img src="img/photo.png" alt=""></div> -->
+        <div class="login-field-block">
+                <div class="">
+                    <table>
+                        <tr>
+                            <td><label>Email ID :</label></td>
+                            <td><p>p16novaroon@iima.ac.in</p></td>
+                        </tr>
+                        <tr>
+                            <td><label>Phone Number :</label></td>
+                            <td><p>7896870771</p></td>
+                        </tr>
+                    </table>                      
+                </div>          
+                <button value="Login" name="" class="close-btn">X</button>
+        </div>
+    </div>
+</div>
+
+<div class="overly"></div>
+
+<apex:includeScript value="https://code.jquery.com/jquery-1.11.1.js"/>
+<script>
+     $(document).ready(function(){
+        $(".login-menu").click(function(){
+            $(".login-block").toggleClass("open");
+            $(".overly").toggleClass("active");
+        });
+        $(".contact-menu, .close-btn").click(function(){
+            $(".login-block").removeClass("open");
+            $(".overly").removeClass("active");
+
+            $(".contact-block").toggleClass("open");
+            $(".overly").toggleClass("active");
+        });  
+       
+    $('.back-to-list').click(function(){
+        parent.history.back();
+        return false;
+    });
+
+});
+   
+</script>
+</body>
+</html>
+
+</apex:form>
+</apex:page>

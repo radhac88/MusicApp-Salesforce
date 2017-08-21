@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Album</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Albums</value>
+    </caseValues>
+    <fields>
+        <label><!-- Cover Photo --></label>
+        <name>Cover_Photo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Genre --></label>
+        <name>Genre__c</name>
+        <relationshipLabel><!-- Albums --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tarck --></label>
+        <name>Tracks__c</name>
+        <relationshipLabel><!-- Albums --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Users --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Albums --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- YouTube id --></label>
+        <name>YouTube_id__c</name>
+    </fields>
+    <layouts>
+        <layout>Album Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

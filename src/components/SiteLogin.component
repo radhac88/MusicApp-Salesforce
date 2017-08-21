@@ -1,0 +1,30 @@
+<apex:component controller="SiteLoginController" id="loginComponent">
+  
+    <apex:outputPanel layout="block">
+      <apex:pageMessages id="error"/>
+      <apex:panelGrid columns="2" style="margin-top:1em;">
+        <!--<apex:outputLabel value="{!$Label.site.username}" for="username"/> -->
+        <apex:inputText id="username" value="{!username}" html-placeholder="User Name" style="width: 408px;"/>
+        <apex:outputText value=""/>
+       <!-- <apex:outputLabel value="{!$Label.site.password}" for="password"/> -->
+        <apex:inputSecret id="password" value="{!password}" html-placeholder="Password"  style="width: 408px;"/>
+        <apex:outputText value=""/>
+         
+        <div id="rem" class="wrapper_remember">
+                <input type="checkbox" id="rememberUn" name="rememberUn"></input>&nbsp;<label for="rememberUn">Remember me</label>
+        </div>
+        <apex:outputText value="|" rendered="{!$Site.RegistrationEnabled}" />
+        <apex:outputLink value="{!$Page.ForgotPassword}"> {!$Label.site.forgot_your_password_q}</apex:outputLink><br/>
+       
+        <apex:panelGroup id="theLinks">
+         
+            <apex:commandButton action="{!login}" value="Sign in" style="width: 100%;padding: 15px 0;background: #6092fa;font-size: 20px;color: #fff;border: none;border-radius: 5px;cursor: pointer;"/>
+               
+           <p style = "float: right;">Not registered yet?&nbsp;&nbsp;
+            <apex:outputLink value="{!$Page.SiteRegister}"  rendered="{!$Site.RegistrationEnabled}" style="line-height: 31px;">SignUp here</apex:outputLink>
+           </p>
+        </apex:panelGroup>
+      </apex:panelGrid> 
+    </apex:outputPanel>
+ 
+</apex:component>

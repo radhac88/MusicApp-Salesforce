@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Company</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Companies</value>
+    </caseValues>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <help><!-- Company Name or Organisation Name --></help>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created-By --></label>
+        <name>Created_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Domain(Industry) --></label>
+        <name>Domain__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employees --></label>
+        <name>Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Head --></label>
+        <name>Head__c</name>
+    </fields>
+    <fields>
+        <label><!-- Locality --></label>
+        <name>Locality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo --></label>
+        <name>Logo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>Position__c</name>
+    </fields>
+    <fields>
+        <help><!-- Product/Service --></help>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revenue --></label>
+        <name>Revenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample --></label>
+        <name>Sample__c</name>
+    </fields>
+    <fields>
+        <help><!-- Location of the industry --></help>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sub Domain/Related Industry/Market --></help>
+        <label><!-- Sub Domain --></label>
+        <name>Sub_Domain__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Site --></label>
+        <name>Web_Site__c</name>
+    </fields>
+    <fields>
+        <label><!-- is-verified --></label>
+        <name>is_verified__c</name>
+    </fields>
+    <fields>
+        <label><!-- teeee --></label>
+        <name>teeee__c</name>
+    </fields>
+    <layouts>
+        <layout>ESDM Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- ESDM --></label>
+            <section>ESDM</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- All --></label>
+        <name>All</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Esdm --></label>
+        <name>Esdm</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- My_List --></label>
+        <name>My_List</name>
+    </webLinks>
+</CustomObjectTranslation>

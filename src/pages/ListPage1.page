@@ -1,0 +1,168 @@
+<apex:page controller="ListPage1" showHeader="false">  
+ 
+ <apex:form id="pg1">
+ <apex:pageBlock id="pgBlock">
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="language" content="English"/>
+<!--media css support meta tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<title>IT-EC-Department</title>
+<!--fav icon link-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+ <!--main stylesheet-->
+ 
+ <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+</head>
+<body>
+ 
+  <div class="header-block">
+    <div class="container">
+      <div class="header-block-left">
+        <a href="/apex/Home"><img src="/resource/1497272641000/logo" alt=""/></a>
+        <h2>IT, Electronics &amp; Communication Department </h2> 
+       </div>
+      <div class="header-block-right">
+        <ul>
+            <li><a href="#" class="login-menu"><i class="spirit-icon login-icon"></i> Login</a></li>
+            <li><a href="#" class="contact-menu"><i class="spirit-icon contact-icon"></i> Contact Us</a></li>
+        </ul>
+      
+      </div>
+    </div>
+  </div>
+
+<div class="inner-part">
+    <div class="search-option-block ">
+         <div class="search-block">
+            <apex:inputText value="{!SearchText}" html-placeholder="Search Domain "/>
+            
+               <button type="submit" class="submit-btn" style="width: 73px;"> 
+               
+                 <apex:commandButton action="{!SearchCompanies}" image="{!URLFOR($Resource.SearchIcon)}" style="width:48px;height:30px;margin-left:-2px;margin-top:-1px;background:none;"/>
+                  <!--<a href="/apex/ListPage?companyName="> </a> -->
+                 
+            </button>
+        </div>
+        <div class="option-block">
+            <ul>
+                
+                <li>
+                    <a href="/apex/ListPage?cat=ESDM">
+                        <i class="spirit-icon es-small-icon"></i>
+                        <span>ESDM</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=Plastic">
+                        <i class="spirit-icon pr-small-icon"></i>
+                        <span>Plastic</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=Govt Bodies">
+                        <i class="spirit-icon dg-small-icon"></i>
+                        <span>Govt Bodies</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=VCs">
+                        <i class="spirit-icon bpm-small-icon"></i>
+                        <span>VCs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=IT Services">
+                        <i class="spirit-icon it-small-icon"></i>
+                        <span>IT Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/apex/ListPage?cat=">
+                         <span>View All</span>
+                    </a>
+                </li>
+            </ul>
+             
+        </div>
+    </div>
+    
+     <div class="container">
+            <div class="contant-info-block">
+                
+                <ul class="contant-info-list">
+                <apex:repeat value="{!lstCompanies}" var="com">
+                    <li>
+                        <apex:outputLink value="/apex/DetailPage?Company={!com.Company_Name__c}" id="theLink">
+                            <div class="thumb-blocks">
+                                
+                                <apex:image value="{!com.Logo__c}" />
+                                <apex:outputText value="{!com.Company_Name__c}" /> 
+                                
+                            </div>
+                            
+                        </apex:outputLink>
+                    </li>
+                </apex:repeat>
+                 </ul>
+                </div>
+    </div>
+</div>
+            
+<div class="login-block">
+    <div class="login-inner-block">
+        <div class="user-photo"><img src="/resource/1497273743000/Photo" alt=""/></div>
+        <div class="login-field-block">
+            <c:SiteLogin id="siteLogin"/>
+            
+        </div>
+    </div>
+</div>
+<div class="contact-block">
+    <div class="login-inner-block">
+        <!-- <div class="user-photo"><img src="img/photo.png" alt=""></div> -->
+        <div class="login-field-block">
+                <div class="">
+                    <table>
+                        <tr>
+                            <td><label>Email ID :</label></td>
+                            <td><p>p16novaroon@iima.ac.in</p></td>
+                        </tr>
+                        <tr>
+                            <td><label>Phone Number :</label></td>
+                            <td><p>7896870771</p></td>
+                        </tr>
+                    </table>                      
+                </div>          
+                <button value="Login" name="" class="close-btn">X</button>
+        </div>
+    </div>
+</div>
+
+<div class="overly"></div>
+
+ <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.js"/>
+
+ 
+<script>
+    $(document).ready(function(){
+        $(".login-menu").click(function(){
+            $(".login-block").toggleClass("open");
+            $(".overly").toggleClass("active");
+        });
+         $(".contact-menu, .close-btn").click(function(){
+            $(".login-block").removeClass("open");
+            $(".overly").removeClass("active");
+
+            $(".contact-block").toggleClass("open");
+            $(".overly").toggleClass("active");
+        });  
+        
+    });
+</script>
+</body>
+</html>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

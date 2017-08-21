@@ -1,0 +1,3 @@
+<apex:page standardController="Track__c" showHeader="false">
+ 
+</apex:page>
