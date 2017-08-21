@@ -1,0 +1,6 @@
+1. Add tracks at new album page.
+2. Add tracks at album detail page.
+3. Album thumbnail page: hyperlinks for gener and Author(Search results page).
+4. Global search bar with advanced search options.(Album, track, genre, author, rating).
+5. Add rating(5 stars) to albums.
+6. Upload mp3 files also.
