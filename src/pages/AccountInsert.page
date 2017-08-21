@@ -1,0 +1,14 @@
+<apex:page controller="Account_Insert_Controller">
+<apex:form >
+<apex:pageBlock >
+
+    <apex:pageBlockSection >
+    
+        <apex:inputField value="{!acc.Name}"/>;
+    
+    </apex:pageBlockSection>
+    <apex:commandButton value="Save" action="{!Save}"/>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

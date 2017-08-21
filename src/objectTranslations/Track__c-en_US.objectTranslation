@@ -9,6 +9,11 @@
         <value>Tracks</value>
     </caseValues>
     <fields>
+        <label><!-- Album --></label>
+        <name>Album__c</name>
+        <relationshipLabel><!-- Tracks --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Genre --></label>
         <name>Genre__c</name>
         <relationshipLabel><!-- Tracks --></relationshipLabel>
@@ -17,6 +22,33 @@
         <label><!-- Track_Id --></label>
         <name>Track_Id__c</name>
     </fields>
+    <fields>
+        <label><!-- User Album --></label>
+        <name>User_Album__c</name>
+        <relationshipLabel><!-- Tracks (User Album) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Author Tracks</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Movie Tracks</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Tarck Layout</layout>
         <sections>
@@ -24,5 +56,13 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
+    <recordTypes>
+        <label><!-- Author Tracks --></label>
+        <name>Author_Tracks</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Movie Tracks --></label>
+        <name>Movie_Tracks</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

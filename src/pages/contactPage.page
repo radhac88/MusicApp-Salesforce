@@ -1,0 +1,110 @@
+<apex:page controller="CustomPaginationDemo" showHeader="false">
+ 
+ <script type="text/javascript">
+        function selectAllCheckboxes(obj,receivedInputID){
+            var inputCheckBox = document.getElementsByTagName("input");
+            for(var i=0; i<inputCheckBox.length; i++){
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+ </script>
+ 
+ <apex:form >
+     
+     <apex:pageBlock id="ThePage">
+      <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="language" content="English"/>
+            <!--media css support meta tag-->
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <title>Music App</title>
+            <!--fav icon link-->
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+             <!--main stylesheet-->
+                <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+                <style>
+                      .user-form td{padding:5px;vertical-align: top;font-weight: bold;}
+                     .user-form td:first-child{text-align:right;}
+                </style>
+               </head>
+            <body>
+              <div class="header-block">
+                <div class="container">
+                  <div class="header-block-left">
+                      <a href="../apex/musicHome"><img src="../resource/1501235329000/MusicAppLogo"/></a>
+                      <h2 style = "padding-left: 304px;font-style: italic;font-size: -webkit-xxx-large;font-style: oblique;color: orangered;">Music App</h2> 
+                  </div>
+                  <div class="header-block-right">
+                     <ul>
+                        
+                        <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
+                        <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
+                      
+                    </ul>
+                 </div>
+                 </div>
+              </div>
+             
+            <div class="contant-part">
+                <div class="search-option-block mg-top">
+                    
+                    <div class="option-block">
+                        <ul>
+                            <li>
+                                 <a href="/apex/albumsPage">
+                                     <i><img src="../resource/1501481614000/AlbumLogo"/></i>
+                                     <span>Albums</span>
+                                 </a>
+                            </li>
+                            <li>
+                                <a href="/apex/UsersPage">
+                                    <i><img src="../resource/1501481915000/UsersLogo"/></i>
+                                    <span>Authors</span>
+                                </a>
+                            </li>
+                            
+                            </ul>
+                          
+                    </div>     
+                    <div class="container" style="background-color: #ccc;width: 100%">
+                        <div style="width:500px;margin:0 auto;padding: 25px;padding-bottom: 6px;">
+             <apex:pageBlockButtons location="bottom">
+               <!-- <apex:commandButton value="Add Tracks to Album" action="{!processSelected}" rerender="table2"/>-->
+            </apex:pageBlockButtons>
+            <b>Select Album:</b><apex:inputField value="{!track.Album__c}"/>
+            <br/><br/>
+            
+             <apex:pageBlockSection columns="1">
+     
+          <apex:pageBlockTable value="{!lstSetController }" var="obj" id="pbt">
+         // style="background-color: lightblue;"
+                 <apex:column headerValue="Select">
+                    <apex:inputCheckbox value="{!obj.isSelected}"/>
+                 </apex:column> 
+                 <apex:column value="{!obj.cont.Name}" headerValue="Name"/> 
+                 <apex:column value="{!obj.cont.Album__c}"/>
+                 <apex:column value="{!obj.cont.Genre__c}"/>
+          </apex:pageBlockTable>
+        
+            <apex:outputPanel >
+               <apex:commandButton value="<<Previous" action="{!previous}" rendered="{!hasPrevious}" reRender="pbt" />
+               <apex:commandButton value="Next >>" action="{!next}" rendered="{!hasNext}" reRender="ThePage" />
+            </apex:outputPanel>  
+            
+        </apex:pageBlockSection>
+         <apex:commandButton value="Add Tracks to Album" action="{!Add}" rerender="table2"/>
+        </div>
+                    </div>
+                </div>
+            </div>
+           
+            </body>
+         </html>
+       
+     </apex:pageBlock>
+ 
+ </apex:form>
+</apex:page>

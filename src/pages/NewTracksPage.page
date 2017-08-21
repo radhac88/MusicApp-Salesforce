@@ -1,0 +1,99 @@
+<apex:page controller="NewTracks_Controller" showHeader="false">
+ 
+ <apex:form >
+      <apex:pageBlock title="Add New Tracks">
+           <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="language" content="English"/>
+            <!--media css support meta tag-->
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <title>Music App</title>
+            <!--fav icon link-->
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+             <!--main stylesheet-->
+                <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+                <style>
+                      .user-form td{padding:5px;vertical-align: top;font-weight: bold;}
+                     .user-form td:first-child{text-align:right;}
+                </style>
+               </head>
+            <body>
+              <div class="header-block">
+                <div class="container">
+                  <div class="header-block-left">
+                      <a href="../apex/musicHome"><img src="../resource/1501235329000/MusicAppLogo"/></a>
+                      <h2 style = "padding-left: 304px;font-style: italic;font-size: -webkit-xxx-large;font-style: oblique;color: orangered;">Music App</h2> 
+                  </div>
+                  <div class="header-block-right">
+                     <ul>
+                        
+                        <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
+                        <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
+                      
+                    </ul>
+                 </div>
+                 </div>
+              </div>
+             
+            <div class="contant-part">
+                <div class="search-option-block mg-top">
+                    
+                    <div class="option-block">
+                        <ul>
+                            <li>
+                                 <a href="/apex/albumsPage">
+                                     <i><img src="../resource/1501481614000/AlbumLogo"/></i>
+                                     <span>Albums</span>
+                                 </a>
+                            </li>
+                            <li>
+                                <a href="/apex/UsersPage">
+                                    <i><img src="../resource/1501481915000/UsersLogo"/></i>
+                                    <span>Authors</span>
+                                </a>
+                            </li>
+                            
+                            </ul>
+                          
+                    </div>
+                          
+                   <h2><b>Add New Tracks</b></h2>
+          <apex:pageBlockSection collapsible="false" columns="1" id="pbs">        
+                <apex:variable var="rowNum" value="{!0}"/>
+            		 <apex:pageBlockTable value="{!lstTracks}" var="t">
+                   		<apex:column headerValue="Track Name">                 
+                       		<apex:inputField value="{!t.Name}"/>
+                   		</apex:column>  
+                   		<apex:column headerValue="AlbumName">
+                       		<apex:inputField value="{!t.Album__c}" required="false"/>
+                   		</apex:column>
+                   		<apex:column headerValue="Genre">
+                       		<apex:inputField value="{!t.Genre__c}"/>
+                   		</apex:column>
+                   		<apex:column headerValue="Track Id">
+                           <apex:inputField value="{!t.Track_Id__c}"/>
+                   		</apex:column>
+                    	<apex:column headerValue="Add New">
+                       		<apex:commandLink style="font-size:15px; text-align:center;" value="Add" action="{!addTrack}" reRender="pbs"/>
+                   		</apex:column>
+                    	<apex:column headerValue="Remove" >
+                       		<apex:commandlink style="font-size:15px; font-weight:bold; text-align:center;color:red;" value="X" action="{!delRow}" reRender="pbs" immediate="true">
+                            <apex:param value="{!rowNum}" name="index" assignTo="{!rowNum}"/>
+                       		</apex:commandLink>
+                           <apex:variable var="rowNum" value="{!rowNum+1}"/>
+                   		</apex:column>                   
+           			 </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </div>
+            </div>
+    <apex:commandButton value="Save" action="{!Save}"/>       
+            </body>
+         </html>
+       </apex:pageBlock>
+ 
+ 
+ 
+ </apex:form>
+ 
+</apex:page>

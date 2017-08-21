@@ -18,11 +18,6 @@
         <relationshipLabel><!-- Albums --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Tarck --></label>
-        <name>Tracks__c</name>
-        <relationshipLabel><!-- Albums --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Users --></label>
         <name>User__c</name>
         <relationshipLabel><!-- Albums --></relationshipLabel>
