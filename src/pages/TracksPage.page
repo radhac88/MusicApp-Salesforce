@@ -58,7 +58,7 @@
                    <img src="/resource/1497855753000/Back_Arrow" alt=""/>
                  
                     <h6>Click here to go Back</h6>
-               </a>
+                           </a>
              </div>
                      <div class="details-block-left">
                 <div class="thumb-blocks">
@@ -70,8 +70,8 @@
                 </div>
             </div>
             <div class="details-block-right">
-                <table>
-               
+                <apex:commandButton value="Add additional Tracks" action="{!tracksSelected}"/><br/><br/><br/><br/>
+                <table>               
                <apex:dataList value="{!AllTracks}" var="Track" type="1">
                 <tr>
                <apex:outputLabel ><b>Track Title</b> : </apex:outputLabel> {!Track.Name}<br/><br/>
