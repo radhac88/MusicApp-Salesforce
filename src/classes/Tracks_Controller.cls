@@ -19,4 +19,9 @@ public void Albums(){
           albums = [select id,Name,User__c,Cover_Photo__c,genre__r.Name__c,User__r.Name__C from Album__C Where User__r.Name__C Like : albm.User__r.Name__C];
         }      
     }
+    public PageReference tracksSelected(){
+        PageReference pgref = New PageReference('/apex/AddTracksToAlbumsPage?id='+albumName);
+           pgref.setRedirect(true);
+           return pgRef;
+    }
 }
