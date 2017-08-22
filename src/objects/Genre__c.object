@@ -78,6 +78,7 @@
     <pluralLabel>Genres</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Name__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Name__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

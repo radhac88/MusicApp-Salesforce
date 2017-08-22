@@ -53,6 +53,16 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>AlbumsCount__c</fullName>
+        <externalId>false</externalId>
+        <label>AlbumsCount</label>
+        <summaryForeignKey>Album__c.User__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Name__c</fullName>
         <externalId>false</externalId>
         <label>Name</label>
@@ -63,7 +73,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Customer</label>
+    <label>Users</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
@@ -75,7 +85,7 @@
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Customers</pluralLabel>
+    <pluralLabel>Users</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Name__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Name__c</lookupDialogsAdditionalFields>

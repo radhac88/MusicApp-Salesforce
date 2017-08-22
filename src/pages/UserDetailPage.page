@@ -1,0 +1,115 @@
+<apex:page StandardController="User_Profile__c" extensions="User_Profile_Controller" showHeader="false" action="{!getAlbums}">
+   <apex:form >       
+       <apex:pageBlock >                  
+         <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="language" content="English"/>
+            <!--media css support meta tag-->
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <title>Music App</title>
+            <!--fav icon link-->
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+             <!--main stylesheet-->
+                <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+               </head>
+            <body>
+             
+              <div class="header-block">
+                <div class="container">
+                  <div class="header-block-left">
+                      <a href="../apex/musicHome"><img src="../resource/1501235329000/MusicAppLogo"/></a>
+                    <h2 style = "padding-left: 304px;font-style: italic;font-size: -webkit-xxx-large;font-style: oblique;color: orangered;">Music App</h2> 
+                  </div>
+                  <div class="header-block-right">
+                     <ul>
+                        
+                        <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
+                        <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
+                      
+                    </ul>
+                 </div>
+                </div>
+              </div>
+             
+           <div class="inner-part">
+                <div class="search-option-block mg-top">                    
+                    <div class="option-block">
+                        <ul>                            
+                            <li>
+                                <a href="/apex/albumsPage">
+                                     <i><img src="../resource/1501481614000/AlbumLogo"/></i>
+                                     <span>Albums</span>
+                                 </a>                                
+                            </li>
+                            <li>
+                                <a href="../apex/UsersPage">
+                                    <i><img src="../resource/1501481915000/UsersLogo"/></i>
+                                    <span>Authors</span>
+                                </a>
+                            </li>                            
+                            </ul>                          
+                    </div>
+                    </div>
+               <div class="details-block">
+                   <div class="container">
+                       <div class="back-to-list">
+               <a href="javascript:history.go(-1)">
+                   <img src="/resource/1497855753000/Back_Arrow" alt=""/>
+                 
+                    <h6>Click here to go Back</h6>
+               </a>
+             </div>
+                     <div class="details-block-left">
+                <div class="thumb-blocks">
+                    <apex:outputField value="{!comp.Picture__c}"/>
+                    <p>{!comp.User__r.Name__c}</p>
+                </div>
+            </div>
+            <div class="details-block-right">
+                <table>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon head-icon"></i></td>
+                        <td width="200px"><h4>Profile Name</h4></td>
+                        <td><p>{!comp.Name}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon industry-icon"></i></td>
+                        <td><h4>D.O.B</h4></td>
+                        <td><p>{!comp.Date_of_Birth__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon sub-domain-icon"></i></td>
+                        <td><h4>Gender</h4></td>
+                        <td><p>{!comp.Gender__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td width="50px" align="center"><i class="spirit-icon address-icon"></i></td>
+                        <td><h4>Address</h4></td>
+                        <td><p>{!comp.Address__c}</p></td>
+                    </tr>
+                </table>           
+                       <div class="contant-info-block" style="background-color: lightgray;width: 100%">                        
+                            <ul class="contant-info-list">
+                                <apex:repeat value="{!albums}" var="a">
+                                    <li>
+                                        <apex:outputLink value="/apex/TracksPage?album={!a.name}" id="theLink">
+                                            <div class="thumb-blocks">
+                                              <apex:outputField value="{!a.Cover_Photo__c}"/>  
+                                              <p><apex:outputText value="{!a.Name}"/></p>
+                                              Genre:<apex:outputText value="{!a.genre__r.Name__c }"/><br/>                                              
+                                            </div>
+                                        </apex:outputLink>
+                                    </li>
+                                </apex:repeat>
+                            </ul>
+                        </div> 
+                      </div>
+                   </div>
+               </div>
+            </div>
+         </body>
+       </html>
+     </apex:pageBlock>
+   </apex:form>
+</apex:page>

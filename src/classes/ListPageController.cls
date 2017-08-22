@@ -12,7 +12,7 @@ public list<list<sObject>> soslResults {get;set;}
  public Integer rec { get; set; }
  public Integer tot { get; set; }
 
-   integer totalRecs = 0;
+  // integer totalRecs = 0;
    integer count= 0;
    integer LimitSize= 10;
    
@@ -31,7 +31,7 @@ public list<list<sObject>> soslResults {get;set;}
                 
             query = 'SELECT id, Company_Name__c,Domain__C,Logo__c,teeee__c from Company__c WHERE Company_Name__C LIKE \''+getcompany+'%\' LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Company_Name__C LIKE : getcompany+'%'];
+            tot = [select count() from Company__C WHERE Company_Name__C LIKE : getcompany+'%'];
             }
             
            /* if(getCompany!='' || getCompany!=NULL && getValue == 'Product__C')
@@ -53,7 +53,7 @@ public list<list<sObject>> soslResults {get;set;}
                 
             query = 'SELECT id, Company_Name__c,Domain__C,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \''+getcompany+'%\' LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcompany+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcompany+'%'];
             }
             
             if((getCompany!='' || getCompany!=NULL) && getValue == 'Sub_Domain__C')
@@ -61,7 +61,7 @@ public list<list<sObject>> soslResults {get;set;}
                 
             query = 'SELECT id, Company_Name__c,Domain__C,Sub_Domain__C,Logo__c,teeee__c from Company__c WHERE Sub_Domain__C LIKE \''+getcompany+'%\' LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Sub_Domain__C LIKE : getcompany+'%'];
+            tot = [select count() from Company__C WHERE Sub_Domain__C LIKE : getcompany+'%'];
             }
             
             if((getCompany!='' || getCompany!=NULL) && getValue == 'Locality__C')
@@ -69,7 +69,7 @@ public list<list<sObject>> soslResults {get;set;}
                 
             query = 'SELECT id, Company_Name__c,Domain__C,Sub_Domain__C,Logo__c,Locality__C,teeee__c from Company__c WHERE Locality__C LIKE \''+getcompany+'%\' LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Locality__C LIKE : getcompany+'%'];
+            tot = [select count() from Company__C WHERE Locality__C LIKE : getcompany+'%'];
             }
           
         if(getCategory =='ESDM')
@@ -77,37 +77,37 @@ public list<list<sObject>> soslResults {get;set;}
             query = 'SELECT id,Domain__C, Company_Name__c,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \'' +getCategory + '%\'LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
              system.debug('++++++'+lstCompanies);
-             tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+             tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
         }
         if(getCategory =='Plastic')
         {
             query = 'SELECT id,Domain__C, Company_Name__c,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \'' +getCategory + '%\'LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
         }
         if(getCategory =='Govt Bodies')
         {
             query = 'SELECT id,Domain__C, Company_Name__c,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \'' +getCategory + '%\'LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
         }
         if(getCategory =='VCs')
         {
             query = 'SELECT id,Domain__C, Company_Name__c,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \'' +getCategory + '%\'LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
         }
         if(getCategory =='IT Services')
         {
             query = 'SELECT id,Domain__C, Company_Name__c,Logo__c,teeee__c from Company__c WHERE Domain__C LIKE \'' +getCategory + '%\'LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
         }
         if(getCategory =='')
         {
             query = 'SELECT id,Domain__C, Company_Name__c,teeee__c,Logo__c from Company__c LIMIT:limitsize OFFSET:count';
             lstCompanies= Database.query(query);
-            tot=totalRecs = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
+            tot = [select count() from Company__C WHERE Domain__C LIKE : getcategory+'%'];
              
         }
       
@@ -266,13 +266,13 @@ public list<list<sObject>> soslResults {get;set;}
         return null;
     }
  public PageReference lstbtn() {
- count= totalrecs - math.mod(totalRecs,LimitSize);
+ count= tot - math.mod(tot,LimitSize);
         return null;
     }
 
 
     public Boolean getNxt() {
-        if((count+ LimitSize) > totalRecs)
+        if((count+ LimitSize) > tot)
        return true;
      else
        return false;

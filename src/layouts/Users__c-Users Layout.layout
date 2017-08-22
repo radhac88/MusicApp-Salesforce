@@ -14,6 +14,10 @@
                 <behavior>Edit</behavior>
                 <field>Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AlbumsCount__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -79,10 +83,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Email__c</fields>
         <relatedList>Email__c.User__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Genre__c</fields>
         <relatedList>Album__c.User__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

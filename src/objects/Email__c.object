@@ -90,6 +90,7 @@
     </nameField>
     <pluralLabel>Emails</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>Email__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Email__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>User__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>User__c</lookupPhoneDialogsAdditionalFields>

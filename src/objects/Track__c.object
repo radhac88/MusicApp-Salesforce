@@ -53,6 +53,19 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Album__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Album</label>
+        <referenceTo>Album__c</referenceTo>
+        <relationshipLabel>Tracks</relationshipLabel>
+        <relationshipName>Tracks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Genre__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
@@ -75,6 +88,19 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>User_Album__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User Album</label>
+        <referenceTo>Album__c</referenceTo>
+        <relationshipLabel>Tracks (User Album)</relationshipLabel>
+        <relationshipName>Tracks1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <label>Track</label>
     <listViews>
         <fullName>All</fullName>
@@ -87,6 +113,24 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Tracks</pluralLabel>
-    <searchLayouts/>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Author_Tracks</fullName>
+        <active>true</active>
+        <label>Author Tracks</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Movie_Tracks</fullName>
+        <active>true</active>
+        <label>Movie Tracks</label>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Album__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Genre__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Album__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Genre__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Album__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Genre__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

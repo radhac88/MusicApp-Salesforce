@@ -1,4 +1,14 @@
 public class Home_Controller {
+
+    public PageReference allAlbums() {
+        return null;
+    }
+
+
+    public Home_Controller() {
+
+    }
+
 public String SearchText{get;set;}
 public List<Company__c> lstCompanies{get;set;}
 public String option {get;set;}
