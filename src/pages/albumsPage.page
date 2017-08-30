@@ -1,6 +1,10 @@
 <apex:page controller="albums_controller" showHeader="false" applyBodyTag="true">
    <apex:form >
-       
+       <style>
+         .rating-block{padding: 20px 0;width: 135px;display: block;margin: 0 auto;}
+         .rating-block img{width:auto !important;height:auto !important;margin:0px}
+         .rating-block span{float:left;margin-top: -15px;}
+       </style>
        <apex:pageBlock >
                   
          <html>
@@ -64,19 +68,21 @@
                         
                             <ul class="contant-info-list">
                                  <apex:repeat value="{!Albums}" var="album">
-                                    <li>
-                                        <apex:outputLink value="/apex/TracksPage?album={!album.name}" id="theLink">
-                                            <div class="thumb-blocks">
+                                    <li><div class="thumb-blocks">
+                                        <apex:outputLink value="/apex/TracksPage?album={!album.name}" id="theLink">                                            
                                               <apex:outputField value="{!album.Cover_Photo__c}"/>  
                                               <p><apex:outputText value="{!album.Name}"/></p>
-                                              Music Director :<apex:outputText value="{!album.User__r.Name__c }"/><br/>
-                                            <!--  No.of Tracks:<apex:outputText value="{!album.TrackCount__c}"/><br/>-->
-                                              Genre:<apex:outputText value="{!album.genre__r.Name__c }"/><br/>
-                                              
-                                            </div>
-                                            
                                         </apex:outputLink>
-                                    </li>
+                                        <a href="/apex/UserDetailPage?UserId={!album.User__r.Id}">
+                                              <b>Music Director :<apex:outputField value="{!album.User__r.Name__c }"/></b>
+                                        </a><br/>
+                                             <!-- <b>Track Count :<apex:outputText value="{!album.TrackCount__c}"/></b><br/>-->
+                                        <a href="/apex/GenreAlbumPage?GenreId={!album.genre__r.Id}">      
+                                        <b>Genre:<apex:outputText value="{!album.genre__r.Name__c }"/></b>
+                                        </a><br/>
+                                        <div class="rating-block"><span> <b>Rating:</b> </span><apex:outputField value="{!album.Rating__c}"/></div><br/>                                              
+                                            </div>
+                                   </li>
                                 </apex:repeat>
                             </ul>
                             

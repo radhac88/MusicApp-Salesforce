@@ -1,0 +1,85 @@
+<apex:page StandardController="Genre__c" extensions="GenreAlbumController" showHeader="false" action="{!getAlbums}">
+   <apex:form >
+       
+       <apex:pageBlock >
+                  
+         <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="language" content="English"/>
+            <!--media css support meta tag-->
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <title>Music App</title>
+            <!--fav icon link-->
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+             <!--main stylesheet-->
+                <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
+               </head>
+            <body>
+             
+              <div class="header-block">
+                <div class="container">
+                  <div class="header-block-left">
+                      <a href="../apex/musicHome"><img src="../resource/1501235329000/MusicAppLogo"/></a>
+                    <h2 style = "padding-left: 304px;font-style: italic;font-size: -webkit-xxx-large;font-style: oblique;color: orangered;">Music App</h2> 
+                  </div>
+                  
+              <div class="header-block-right">
+                 <ul>
+                    
+                    <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
+                    <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
+                  
+                </ul>
+            </div>
+                </div>
+              </div>
+                 
+            <div class="contant-part"> 
+                    <div class="option-block">
+                        <ul>
+                            <li>
+                                <a href="/apex/albumsPage">
+                                     <i><img src="../resource/1501481614000/AlbumLogo"/></i>
+                                     <span>Albums</span>
+                                 </a>
+                            </li>
+                            <li>
+                                <a href="/apex/UsersPage">
+                                    <i><img src="../resource/1501481915000/UsersLogo"/></i>
+                                    <span>Authors</span>
+                                </a>
+                            </li>
+                            </ul>
+                    </div><br/><br/>
+                          
+                    <div class="container" style="background-color: lightgray;width: 100%">
+                        <div class="contant-info-block">
+                            <ul class="contant-info-list">
+                          
+                               <apex:repeat value="{!albums}" var="a">
+                                    <li><div class="thumb-blocks">
+                                        <apex:outputLink value="/apex/TracksPage?album={!a.name}" id="theLink">                                            
+                                              <apex:outputField value="{!a.Cover_Photo__c}"/>  
+                                              <p><apex:outputText value="{!a.Name}"/></p>
+                                        </apex:outputLink>
+                                        <a href="/apex/UserDetailPage?UserId={!a.User__r.Id}">
+                                              <b>Music Director :<apex:outputField value="{!a.User__r.Name__c }"/></b>
+                                        </a><br/>
+                                             <!-- <b>Track Count :<apex:outputText value="{!album.TrackCount__c}"/></b><br/>-->
+                                        <a href="/apex/GenreAlbumPage?GenreId={!a.genre__r.Id}">      
+                                        <b>Genre:<apex:outputText value="{!a.genre__r.Name__c }"/></b>
+                                        </a><br/>                                              
+                                            </div>
+                                   </li>
+                                </apex:repeat>
+                            </ul>
+                        </div>                        
+                    </div>                
+            </div>           
+            </body>
+         </html>
+       </apex:pageBlock>
+      
+   </apex:form>
+</apex:page>

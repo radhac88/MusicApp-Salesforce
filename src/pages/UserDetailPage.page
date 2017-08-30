@@ -1,5 +1,12 @@
 <apex:page StandardController="User_Profile__c" extensions="User_Profile_Controller" showHeader="false" action="{!getAlbums}">
-   <apex:form >       
+   <apex:form > 
+   
+       <style>
+         .rating-block{padding: 20px 0;width: 135px;display: block;margin: 0 auto;}
+         .rating-block img{width:auto !important;height:auto !important;margin:0px}
+         .rating-block span{float:left;margin-top: -15px;}
+       </style>
+         
        <apex:pageBlock >                  
          <html>
             <head>
@@ -97,7 +104,8 @@
                                             <div class="thumb-blocks">
                                               <apex:outputField value="{!a.Cover_Photo__c}"/>  
                                               <p><apex:outputText value="{!a.Name}"/></p>
-                                              Genre:<apex:outputText value="{!a.genre__r.Name__c }"/><br/>                                              
+                                              Genre:<apex:outputText value="{!a.genre__r.Name__c }"/><br/>   
+                                              <div class="rating-block"><span> <b>Rating:</b> </span><apex:outputField value="{!a.Rating__c}"/></div><br/>                                                 
                                             </div>
                                         </apex:outputLink>
                                     </li>

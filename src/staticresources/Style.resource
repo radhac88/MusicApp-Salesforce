@@ -12,6 +12,7 @@ input[type="text"], input[type="password"], input[type="button"], button, textar
 /* ==============  2. Page Holder ============================
 ============================================================== */
 .container { padding: 0; margin: 0 auto; width: 1200px; }
+.container_down { padding: 0; margin: 0 auto; width: 1200px; }
 /* ============== 3. General Styles =============================
 ============================================================== */
 *:focus { outline: none; }
@@ -83,10 +84,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 .bpm-small-icon{background-position:-172px -238px;width:25px;height:25px;transition: all 0.5s;float: left;margin: 12px 15px 12px 5px; }
 .inner-part .option-block ul li a{width: auto;height: auto; line-height: 50px;padding: 0 10px;    padding: 0 16px; margin: 0 5px;}
 .inner-part .option-block ul li button{width: auto;height: auto; line-height: 50px;padding: 0 10px;    padding: 0 16px; margin: 0 5px;border: none;background: #FFF;cursor: pointer;color: #6092fa;border-radius: 5px;}
-.inner-part .option-block ul li:hover button {
-    background: #6092fa;
-    color: #fff;
-}
+.inner-part .option-block ul li:hover button {background: #6092fa;color: #fff;}
 .inner-part .option-block ul li:hover .it-small-icon{background-position:0px -276px; }
 .inner-part .option-block ul li:hover .es-small-icon{background-position:-48px -276px;  }
 .inner-part .option-block ul li:hover .pr-small-icon{background-position:-94px -276px; }

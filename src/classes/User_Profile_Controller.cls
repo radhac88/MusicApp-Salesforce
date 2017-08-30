@@ -17,7 +17,7 @@ public User_Profile_Controller (ApexPages.StandardController controller) {
     public Void getAlbums(){        
           if(getUserId!='' || getUserId!=NULL)
         {
-          albums = [select id,Name,User__c,Cover_Photo__c,genre__r.Name__c,User__r.Name__c from Album__C Where User__c =: getUserId];
+          albums = [select id,Name,User__c,Cover_Photo__c,Rating__c,genre__r.Name__c,User__r.Name__c from Album__C Where User__c =: getUserId];
             
         }       
     }

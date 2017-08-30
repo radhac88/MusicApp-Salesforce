@@ -80,6 +80,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Track_Name__c</fields>
         <fields>Album__c</fields>
         <relatedList>Track__c.Genre__c</relatedList>
     </relatedLists>

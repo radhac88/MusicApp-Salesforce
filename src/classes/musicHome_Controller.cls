@@ -1,20 +1,40 @@
 public class musicHome_Controller {
-
-public Integer trackCount{get;set;}
-
-public ApexPages.StandardSetController setCon {
-        get {
-            if(setCon == null) {
-                setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
-                      [select id,Name,Cover_Photo__c,genre__r.Name__c,User__r.Name__c,(SELECT id FROM tracks__r) from Album__C]));
-            }
-            return setCon;
-        }
-        set;
+    public String SearchText{get;set;} 
+	public String option {get;set;}
+    public List<Album__c> lstAlbums{get;set;}
+    Public musicHome_Controller(Apexpages.StandardController controller){ 
     }
-
-public List<Album__C> getAlbums() {
-         setCon.setpagesize(6);
-         return (List<Album__C>) setCon.getRecords();
+    //It is for Search Method
+    public pageReference SearchAlbums(){        
+    if(option == 'Name'){
+       pageReference pgRef = new pageReference('/apex/musicHome_List?query='+SearchText+'&s_by='+option);
+       pgRef.setRedirect(true);      
+       return pgRef;
+    }     
+   if(option == 'Track__c.Name__C')
+    {
+       pageReference pgRef = new pageReference('/apex/musicHome_List?query='+searchText+'&s_by='+option);
+       system.debug('======='+SearchText);
+       pgRef.setRedirect(true);
+      
+       return pgRef;
+    }    
+    if(option == 'genre__r.Name__c'){
+       pageReference pgRef = new pageReference('/apex/musicHome_List?query='+searchText+'&s_by='+option);
+       pgRef.setRedirect(true);      
+       return pgRef;
+    }
+    if(option == 'User__r.Name__c'){
+       pageReference pgRef = new pageReference('/apex/musicHome_List?query='+SearchText+'&s_by='+option);
+       pgRef.setRedirect(true);      
+       return pgRef;
+    }    
+    if(option == 'Album_rating__C'){
+       pageReference pgRef = new pageReference('/apex/musicHome_List?query='+SearchText+'&s_by='+option);
+       pgRef.setRedirect(true);      
+       return pgRef;
+    }       
+       else
+       return null;       
     }
 }

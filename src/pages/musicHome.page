@@ -1,8 +1,6 @@
-<apex:page Controller="musicHome_Controller" showHeader="false" >
+<apex:page extensions="musicHome_Controller" showHeader="false" standardController="Album__c">
    <apex:form >
-       
-       <apex:pageBlock >
-                  
+      <apex:pageBlock >
          <html>
             <head>
                 <meta charset="utf-8"/>
@@ -14,9 +12,9 @@
                 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
              <!--main stylesheet-->
                 <apex:stylesheet value="{!URLFOR($Resource.Style, '')}"/>
-               </head>
+               </head>             
+                
             <body>
-             
               <div class="header-block">
                 <div class="container">
                   <div class="header-block-left">
@@ -25,25 +23,30 @@
                   </div>
               <div class="header-block-right">
                  <ul>
-                    
                     <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
                     <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
-                  
-                </ul>
+                 </ul>
             </div>
                 </div>
               </div>
-             
             <div class="contant-part">
-                <div class="search-option-block mg-top">                    
+                <div class="search-option-block mg-top" >
+                        <apex:inputText value="{!searchText}" html-placeholder="Search Music" style="margin-left : 300px;"/>    
+                 <apex:commandButton value="Search" action="{!SearchAlbums}"/>
+                        <apex:selectradio value="{!option}" style="margin-left : 280px;">
+                            <apex:selectOption itemLabel="Album" itemValue="Name"/>
+                           <apex:selectoption itemlabel="Track" itemValue="Track__c.Name__C"/>
+                            <apex:selectoption itemlabel="Genre" itemValue="genre__r.Name__c"/>
+                            <apex:selectoption itemlabel="Author" itemValue="User__r.Name__c"/>
+                            <apex:selectoption itemlabel="Rating" itemValue="Album_Rating__C"/>                 
+                       </apex:selectradio>
                     <div class="option-block">
                         <ul>
                             <li>
-                                 <a href="/apex/albumsPage">
+                                <a href="/apex/albumsPage">
                                      <i><img src="../resource/1501481614000/AlbumLogo"/></i>
                                      <span>Albums</span>
                                  </a>
-                                
                             </li>
                             <li>
                                 <a href="/apex/UsersPage">
@@ -51,51 +54,12 @@
                                     <span>Authors</span>
                                 </a>
                             </li>
-                            
                             </ul>
-                          
-                    </div><br/><br/>
-                          
-                    <div class="container" style="background-color: lightgray;width: 100%">
-                        <div class="contant-info-block">
-                            <ul class="contant-info-list">
-                          
-                               <apex:repeat value="{!Albums}" var="album">
-                                    <li>
-                                        <apex:outputLink value="/apex/TracksPage?album={!album.name}" id="theLink">
-                                            <div class="thumb-blocks">
-                                              <apex:outputField value="{!album.Cover_Photo__c}"/>  
-                                              <p><apex:outputText value="{!album.Name}"/></p>
-                                              <b>Music Director :<apex:outputText value="{!album.User__r.Name__c }"/></b><br/>
-                                             <!-- <b>Track Count :<apex:outputText value="{!album.TrackCount__c}"/></b><br/>-->
-                                              <b>Genre:<apex:outputText value="{!album.genre__r.Name__c }"/></b><br/>
-                                              
-                                            </div>
-                                            
-                                        </apex:outputLink>
-                                    </li>
-                                </apex:repeat>
-                          
-                            </ul>
-                            <div style = "padding-left: 304px;">
-                                <apex:commandButton rendered="{!setCon.hasPrevious}" value="Home" action="{!setCon.first}" style="background:#fff;font-size: 15px;border-radius: 5px;height:40px;width:80px;"/>
-                                <apex:commandButton rendered="{!setCon.hasPrevious}" value="PreviousPage" action="{!setCon.previous}"  style="background: #fff;margin-right:7px;font-size: 15px;border-radius: 5px;height:40px;width:120px;"/>
-                                
-                                <apex:outputText rendered="{!(setCon.pageNumber * setCon.pageSize) < setCon.ResultSize}" value="{!setCon.pageNumber * setCon.pageSize} Of {!setCon.ResultSize}" ></apex:outputText>
-                                <apex:outputText rendered="{!(setCon.pageNumber * setCon.pageSize) >= setCon.ResultSize}" value="{!setCon.ResultSize} Of {!setCon.ResultSize}"></apex:outputText>
-                               
-                                <apex:commandButton rendered="{!setCon.hasNext}" value="NextPage" action="{!setCon.next}" style="background: #fff;font-size: 15px;border-radius: 5px;height:40px;width:80px;"/>
-                                <apex:commandButton rendered="{!setCon.hasNext}" value="LastPage" action="{!setCon.last}" style="background: #fff;font-size: 15px;border-radius: 5px;height:40px;width:80px;"/>
-                           </div>
-                        </div> 
-                       
+                    </div> 
                     </div>
-                </div>
-            </div>
-           
+            	</div>
             </body>
          </html>
        </apex:pageBlock>
-      
    </apex:form>
 </apex:page>

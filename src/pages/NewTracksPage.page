@@ -1,5 +1,4 @@
 <apex:page controller="NewTracks_Controller" showHeader="false">
- 
  <apex:form >
       <apex:pageBlock title="Add New Tracks">
            <html>
@@ -27,18 +26,14 @@
                   </div>
                   <div class="header-block-right">
                      <ul>
-                        
                         <li><apex:outputLink value="/apex/NewAlbumPage"><img src="../resource/1501665549000/NewAlbumIcon"/>New Album</apex:outputLink></li>
-                        <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>
-                      
+                        <li><apex:outputLink value="/apex/AddUserspage"><img src="../resource/1501652635000/AddUserLogo"/>New Author</apex:outputLink></li>                      
                     </ul>
                  </div>
                  </div>
               </div>
-             
             <div class="contant-part">
                 <div class="search-option-block mg-top">
-                    
                     <div class="option-block">
                         <ul>
                             <li>
@@ -53,21 +48,16 @@
                                     <span>Authors</span>
                                 </a>
                             </li>
-                            
                             </ul>
-                          
                     </div>
-                          
-                   <h2><b>Add New Tracks</b></h2>
-          <apex:pageBlockSection collapsible="false" columns="1" id="pbs">        
+                    <h2><b>Add New Tracks</b></h2><br/><br/>
+                    <b>Album:</b><apex:inputField value="{!albm.Name}"/>
+                    <apex:pageBlockSection collapsible="false" columns="1" id="pbs">        
                 <apex:variable var="rowNum" value="{!0}"/>
             		 <apex:pageBlockTable value="{!lstTracks}" var="t">
                    		<apex:column headerValue="Track Name">                 
-                       		<apex:inputField value="{!t.Name}"/>
-                   		</apex:column>  
-                   		<apex:column headerValue="AlbumName">
-                       		<apex:inputField value="{!t.Album__c}" required="false"/>
-                   		</apex:column>
+                       		<apex:inputField value="{!t.Track_Name__c}"/>
+                   		</apex:column>                  		
                    		<apex:column headerValue="Genre">
                        		<apex:inputField value="{!t.Genre__c}"/>
                    		</apex:column>
@@ -77,7 +67,7 @@
                     	<apex:column headerValue="Add New">
                        		<apex:commandLink style="font-size:15px; text-align:center;" value="Add" action="{!addTrack}" reRender="pbs"/>
                    		</apex:column>
-                    	<apex:column headerValue="Remove" >
+                    	<apex:column headerValue="Remove">
                        		<apex:commandlink style="font-size:15px; font-weight:bold; text-align:center;color:red;" value="X" action="{!delRow}" reRender="pbs" immediate="true">
                             <apex:param value="{!rowNum}" name="index" assignTo="{!rowNum}"/>
                        		</apex:commandLink>
@@ -87,13 +77,9 @@
                 </apex:pageBlockSection>
             </div>
             </div>
-    <apex:commandButton value="Save" action="{!Save}"/>       
+    <apex:commandButton value="Save" action="{!Save}"/>     
             </body>
          </html>
        </apex:pageBlock>
- 
- 
- 
  </apex:form>
- 
 </apex:page>

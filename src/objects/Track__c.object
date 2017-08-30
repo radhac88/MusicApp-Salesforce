@@ -89,6 +89,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Track_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Track Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>User_Album__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -104,13 +115,16 @@
     <label>Track</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Track_Name__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Tarck Name</label>
+        <displayFormat>TrackId-{00000}</displayFormat>
+        <label>TrackId</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Tracks</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -125,12 +139,19 @@
         <label>Movie Tracks</label>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>Track_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Album__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Genre__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Track_Name__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Album__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Genre__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Track_Name__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Track_Name__c</searchFilterFields>
+        <searchFilterFields>Album__c</searchFilterFields>
         <searchResultsAdditionalFields>Album__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Genre__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Track_Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -1,4 +1,4 @@
-<apex:page controller="addTracksToAlbums_Controller" showHeader="false" >
+<apex:page extensions="addTracksToAlbums_Controller" showHeader="false" standardController="Album__c">
   <script type="text/javascript">
         function selectAllCheckboxes(obj,receivedInputID){
             var inputCheckBox = document.getElementsByTagName("input");
@@ -59,7 +59,7 @@
                     </div>     
                     <div class="container" style="background-color: #ccc;width: 100%">
                         <div style="width:500px;margin:0 auto;padding: 25px;padding-bottom: 6px;">
-            <b>Select Album:</b><apex:inputField value="{!track.Album__c}"/>
+            <b>Select Album:</b><apex:inputField value="{!track.Name}"/>
             <br/><br/>
             <apex:pageblockSection title="All Tracks" collapsible="false"></apex:pageblockSection>                            
             <apex:pageBlockTable value="{!wrapTrackList}" var="accWrap" id="table" title="All Tracks"  style="background-color: lightblue;">
@@ -69,7 +69,7 @@
                         </apex:facet>
                         <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" title="SelectAll"/>
                     </apex:column>
-                    <apex:column value="{!accWrap.acc.Name}" />
+                    <apex:column value="{!accWrap.acc.Track_Name__c}" />
                     <apex:column value="{!accWrap.acc.Album__c}" />
                     <apex:column headerValue="Genre"> 
                         <apex:outputField value="{!accWrap.acc.Genre__r.Name__c}"/></apex:column>                

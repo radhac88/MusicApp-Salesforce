@@ -9,13 +9,25 @@
         <value>Albums</value>
     </caseValues>
     <fields>
+        <label><!-- Rating --></label>
+        <name>Album_Rating__c</name>
+    </fields>
+    <fields>
         <label><!-- Cover Photo --></label>
         <name>Cover_Photo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Genere --></label>
+        <name>Genere__c</name>
     </fields>
     <fields>
         <label><!-- Genre --></label>
         <name>Genre__c</name>
         <relationshipLabel><!-- Albums --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- StarRating --></label>
+        <name>Rating__c</name>
     </fields>
     <fields>
         <label><!-- Users --></label>

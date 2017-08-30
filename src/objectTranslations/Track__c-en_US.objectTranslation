@@ -23,6 +23,10 @@
         <name>Track_Id__c</name>
     </fields>
     <fields>
+        <label><!-- Track Name --></label>
+        <name>Track_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- User Album --></label>
         <name>User_Album__c</name>
         <relationshipLabel><!-- Tracks (User Album) --></relationshipLabel>

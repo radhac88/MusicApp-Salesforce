@@ -112,24 +112,19 @@
                
                 <apex:repeat value="{!companiesList}" var="com">
                     <li>
-                    
                       <div class="thumb-blocks">
-                      <a href="/apex/DetailPage??Company={!com.Company_Name__c}">
                         <apex:outputLink value="/apex/DetailPage?Company={!com.Company_Name__c}">
                                 <apex:image value="{!com.Logo__c}" />
                                 <apex:outputText value="{!com.Company_Name__c}" /> 
-                        </apex:outputLink>
-                      </a>
-                      </div>  
-                    
+                        </apex:outputLink>                      
+                      </div>                    
                     </li>
                     
                 </apex:repeat>
                       
                  </ul>
                   
-                 <apex:outputLabel >Total no of recs:{!tot}</apex:outputLabel><br/>
-                 
+                 <apex:outputLabel >Total no of recs:{!tot}</apex:outputLabel><br/>                 
                  Display records per page <apex:selectList value="{!rec}" size="1" >
                    <apex:selectOption itemLabel="1" itemValue="1" ></apex:selectOption>
                    <apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>

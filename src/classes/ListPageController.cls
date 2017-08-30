@@ -24,8 +24,9 @@ public list<list<sObject>> soslResults {get;set;}
         getcompany = ApexPages.CurrentPage().GetParameters().get('query');
         getCategory = ApexPages.CurrentPage().GetParameters().get('cat');
         getvalue = ApexPages.CurrentPage().GetParameters().get('s_by');
-        system.debug(getValue);
-        
+       	system.debug(getcompany);
+       	system.debug(getCategory);
+        system.debug(getValue);  
             if(getCompany!='' || getCompany!=NULL && getValue == 'Company_Name__C')
             {
                 
@@ -165,8 +166,6 @@ public list<list<sObject>> soslResults {get;set;}
        
     }
    
-   public List<Company__C> CompaniesList = new List<Company__C>();
-   
    public List<Company__C> getCompaniesList () {
       List<Company__C> comp = new List<Company__C>();
        
@@ -174,8 +173,8 @@ public list<list<sObject>> soslResults {get;set;}
       {
       
        query = 'SELECT id, Company_Name__c,Domain__C,Logo__c,teeee__c from Company__c WHERE Company_Name__C LIKE \''+getcompany+'%\' LIMIT:limitsize OFFSET:count';
-       comp  = Database.query(query);
-       
+       comp  = Database.query(query);       
+          system.debug('Company:'+comp);
       }
       
      /*if(getCompany!='' || getCompany!=NULL && getValue=='Product__C')
@@ -241,15 +240,13 @@ public list<list<sObject>> soslResults {get;set;}
      
      
         return comp;
+       
     }
    
     //Pagination Methods
    
      public Void updatePage() {
-   
-      companiesList.clear();
       limitsize=rec;
-     
       }
     
     public PageReference Firstbtn() {

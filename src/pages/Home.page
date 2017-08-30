@@ -113,10 +113,8 @@
             
         </div>
               
-        <div class="container">
-            <div class="contant-info-block">
-                
-            
+        <!--<div class="container">
+            <div class="contant-info-block">  
                 <ul class="contant-info-list">
                 <apex:repeat value="{!lstCompanies}" var="com">
                     <li>
@@ -124,15 +122,13 @@
                             <div class="thumb-blocks">
                                 <apex:image value="{!com.Logo__c}" />
                                 <apex:outputText value="{!com.Company_Name__c}" />
-                                
                             </div>
-                            
                         </apex:outputLink>
                     </li>
                 </apex:repeat>
                 </ul>
             </div>   
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="login-block">

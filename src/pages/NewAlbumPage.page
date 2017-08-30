@@ -1,8 +1,6 @@
 <apex:page controller="new_Album_Controller" showHeader="false">
   <apex:form >
-  
        <apex:pageBlock >
-                  
          <html>
             <head>
                 <meta charset="utf-8"/>
@@ -81,13 +79,14 @@
                                     <td>User</td>
                                      <td><apex:inputField value="{!album.User__c}" /></td>
                                  </tr>
-                                 <tr>
-                                    <td></td>
+                                 <tr><td></td>
                                     <td>
-                                        <apex:commandButton action="{!save}" value="Save" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                 
-                                     </td>
-                                 </tr>
+                                        <apex:commandButton action="{!OldSave}" value="Add Existing Tracks" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <apex:commandButton action="{!NewSave}" value="Add New Tracks" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                                     </td>                       
+                                 </tr><td></td>
+                                 <td><apex:commandButton action="{!Save}" value="Save" style="width: 100%;line-height: 30px;border: none;background: #308603;font-size: 16px;
+    						color: #fff;"/></td>                                 
                              </table>
                         </div>
                     </div>

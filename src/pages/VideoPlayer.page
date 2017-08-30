@@ -1,0 +1,10 @@
+<apex:page title="Vidio Player in VF" showHeader="false">
+<!--Upload Mpg video on Static Resource like Geographic -->
+
+<embed type="application/x-mplayer2" src="{!$Resource.Geographic}" autostart="true" align="middle" width="20" height="50" defaultframe="rightFrame" showstatusbar="true">
+</embed>
+
+<a href="{!$Resource.Geographic}"><font size="2">Click here for Player</font></a>
+
+
+</apex:page>

@@ -53,6 +53,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Album_Rating__c</fullName>
+        <externalId>false</externalId>
+        <label>Rating</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cover_Photo__c</fullName>
         <externalId>false</externalId>
         <label>Cover Photo</label>
@@ -61,6 +72,18 @@
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Genere__c</fullName>
+        <externalId>false</externalId>
+        <formula>Genre__r.Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Genere</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Genre__c</fullName>
@@ -74,6 +97,26 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rating__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE(
+IF(Album_Rating__c = &apos;&apos;, &quot;/img/samples/stars_000.gif&quot;,
+IF(Album_Rating__c = &apos;1&apos;, &quot;/img/samples/stars_100.gif&quot;,
+IF(Album_Rating__c = &apos;2&apos;, &quot;/img/samples/stars_200.gif&quot;,
+IF(Album_Rating__c = &apos;3&apos;, &quot;/img/samples/stars_300.gif&quot;,
+IF(Album_Rating__c = &apos;4&apos;, &quot;/img/samples/stars_400.gif&quot;,
+IF(Album_Rating__c = &apos;5&apos;, &quot;/img/samples/stars_500.gif&quot;, &quot;/img/samples/stars_500.gif&quot;
+)))))),
+&quot;Album_Rating__c &quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>StarRating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>User__c</fullName>

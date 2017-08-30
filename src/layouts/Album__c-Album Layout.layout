@@ -27,6 +27,18 @@
                 <behavior>Edit</behavior>
                 <field>YouTube_id__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Album_Rating__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Rating__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Genere__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -87,11 +99,13 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Track_Name__c</fields>
         <fields>Genre__c</fields>
         <relatedList>Track__c.Album__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Track_Name__c</fields>
         <fields>Album__c</fields>
         <fields>Genre__c</fields>
         <relatedList>Track__c.User_Album__c</relatedList>

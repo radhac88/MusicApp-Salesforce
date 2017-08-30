@@ -1,5 +1,79 @@
-<apex:page controller="Tracks_Controller" showHeader="false" action="{!Albums}" >
-  <apex:form >       
+<apex:page controller="Tracks_Controller" showHeader="false" action="{!Albums}">
+
+  <apex:form >     
+  
+  <script>
+       funtion reload(){
+           window.location.reload( true );
+       }
+   </script>  
+<style>
+
+.rating-block{padding: 20px 0;width: 135px;display: block;margin: 0 auto;}
+.rating-block img{width:auto !important;height:auto !important;margin:0px}
+.rating-block span{float:left;margin-top: -15px;}
+
+.star-rating fieldset {
+  font-size:0;
+  white-space:nowrap;
+  display:inline-block;
+  width:100px;
+  height:20px;
+  overflow:hidden;
+  position:relative;
+  background:
+      url('data:image/svg+xml;utf-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"><polygon fill="#DDDDDD" points="10,0 13.09,6.583 20,7.639 15,12.764 16.18,20 10,16.583 3.82,20 5,12.764 0,7.639 6.91,6.583 "/></svg>');
+  background-size: contain;
+}
+
+.star-rating input { 
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   opacity: 0;
+   display:inline-block;
+   width: 100%;
+   height: 100%; 
+   margin:0;
+   padding:0;
+   z-index: 2;
+   position: relative;
+}
+
+.star-rating input:hover + label,
+.star-rating input:checked + label {
+     opacity:1;    
+   }
+
+.star-rating label {
+   opacity: 0;
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100%;
+   width: 20%;
+   z-index: 4;
+   background: 
+      url('data:image/svg+xml;utf-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"><polygon fill="#FFDF88" points="10,0 13.09,6.583 20,7.639 15,12.764 16.18,20 10,16.583 3.82,20 5,12.764 0,7.639 6.91,6.583 "/></svg>');
+   background-size: contain;
+ }
+
+.star-rating td ~ td label {
+  width: 40%;
+  z-index: 3;  
+}
+.star-rating td ~ td ~ td label {
+  width: 60%;
+  z-index: 2;
+}
+.star-rating td ~ td ~ td ~ td label {
+  z-index: 1;
+  width: 80%;
+}
+.star-rating td ~ td ~ td ~ td ~ td label {
+  z-index: 0;
+  width: 100%;
+}
+</style>
        <apex:pageBlock >                  
          <html>
             <head>
@@ -67,6 +141,22 @@
                     <b>Music Director :<apex:outputText value="{!albm.User__r.Name__c }"/></b><br/>
                  <!--   <b>Track Count :<apex:outputText value="{!albm.TrackCount__c}"/></b><br/>-->
                     <b>Genre:<apex:outputText value="{!albm.genre__r.Name__c }"/></b><br/>
+               
+                <apex:outputPanel styleClass="star-rating">   
+                       <div style="text-align: center">{!if(isnull(rating),'No value selected',text(rating)&' stars')}<br/>
+                         <apex:selectRadio value="{!rating}" layout="lineDirection">
+                         <apex:actionSupport event="onclick" reRender="form" />
+                            <apex:selectOption itemValue="1"></apex:selectOption>
+                            <apex:selectOption itemValue="2"></apex:selectOption>
+                            <apex:selectOption itemValue="3"></apex:selectOption>
+                            <apex:selectOption itemValue="4"></apex:selectOption>
+                            <apex:selectOption itemValue="5"></apex:selectOption>
+                        </apex:selectRadio>                           
+                        </div>                      
+                </apex:outputPanel>
+                 
+                    <apex:commandButton value="Update" action="{!UpdateAlbum}" onclick="reload();"/>
+                
                 </div>
             </div>
             <div class="details-block-right">
@@ -74,10 +164,9 @@
                 <table>               
                <apex:dataList value="{!AllTracks}" var="Track" type="1">
                 <tr>
-               <apex:outputLabel ><b>Track Title</b> : </apex:outputLabel> {!Track.Name}<br/><br/>
+               <apex:outputLabel ><b>Track Title</b> : </apex:outputLabel> {!Track.Track_Name__c}<br/><br/>
                
-                  <apex:iframe height="140" src="https://www.youtube.com/embed/{!Track.Track_Id__c}"/>
-               
+                  <apex:iframe height="140" src="https://www.youtube.com/embed/{!Track.Track_Id__c}"/>               
                 </tr>
                </apex:dataList>
                 </table>
@@ -92,7 +181,8 @@
                                             <div class="thumb-blocks"  style="background-color: lightgray;width: 100%">
                                               <apex:outputField value="{!a.Cover_Photo__c}"/>  
                                               <b><apex:outputText value="{!a.Name}"/></b><br/>
-                                              Genre:<apex:outputText value="{!a.genre__r.Name__c }"/><br/>                                              
+                                              Genre:<apex:outputText value="{!a.genre__r.Name__c }"/><br/> 
+                                              <div class="rating-block"><span> <b>Rating:</b> </span><apex:outputField value="{!a.Rating__c}"/></div><br/>                                                   
                                             </div>
                                         </apex:outputLink>
                                     </li>

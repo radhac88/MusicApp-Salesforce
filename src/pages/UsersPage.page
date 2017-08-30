@@ -50,11 +50,13 @@
                     <div class="container" style="background-color: lightgray;width: 100%">
                         <div class="contant-info-block">
                             <ul class="contant-info-list">
+                           
                               <apex:repeat value="{!users}" var="com">
                                     <li>
+                                     
                                         <apex:outputLink value="/apex/UserDetailPage?UserId={!com.Id}" id="theLink">
                                             <div class="thumb-blocks">
-                                                
+                                               
                                                 <apex:repeat value="{!com.User_Profiles__r}" var="c">
                                                     <apex:outputField value="{!c.Picture__c}"/>
                                                 </apex:repeat>
