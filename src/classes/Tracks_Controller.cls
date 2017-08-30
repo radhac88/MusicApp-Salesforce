@@ -22,6 +22,7 @@ public void Albums(){
         }      
     }
     public PageReference tracksSelected(){
+<<<<<<< HEAD
         PageReference pgref = New PageReference('/apex/AddTracksToAlbumsPage?id='+albm.ID);
            pgref.setRedirect(true);
            return pgRef;
@@ -34,4 +35,10 @@ public void Albums(){
            pgref.setRedirect(true);
            return pgRef;*/
         }
+=======
+        PageReference pgref = New PageReference('/apex/AddTracksToAlbumsPage?id='+albumName);
+           pgref.setRedirect(true);
+           return pgRef;
+    }
+>>>>>>> 7f4361ae29b3c026bd1e4682ae3e0614d1d3b938
 }

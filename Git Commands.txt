@@ -1,6 +1,7 @@
 
 All the steps/pointers/notes related to project should be noted here:
 
+
 Git usage:
 
 1. git status
